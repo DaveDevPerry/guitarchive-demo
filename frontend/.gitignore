@@ -1,0 +1,88 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env
+.env.production
+
+.vscode
+
+
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+/public/offline copy.html
+/public/darkwoodtexture.webp
+/public/whitewood.webp
+/public/NewTegomin-Regular.woff
+/public/NewTegomin-Regular.woff2
+/public/serviceworker.js
+/public/sw.js
+/public/anilsw.js
+/public/manifest.json
+/public/offline.html
+# /public/robots.txt
+# /public/
+
+
+
+
+/public/fonts
+/public/favicon/site copy.webmanifest
+/src/assets/fonts
+
+
+
+/src/service-worker.js
+/src/serviceWorkerRegistration.js
+/src/sw.js
+/src/swDev.js
+/src/vercel.json
+
+
+/src/registerSW.js
+
+
+
+
+
+
+/src/features/song/SongForm copy.js
+/src/features/song/SongForm copy 2.js
+/src/features/songs/SongsFilter copy.js
+/src/features/songs/SongCard copy.js
+/src/features/songs/SongsWidget copy.js
+/src/features/artists/ArtistCard 1.js
+/src/features/artists/SongCard 1.js
+/src/features/artists/SongsList 1.js
+# /src/features/artists/Artist.js
+# /src/features/artists/Artist.js
+/src/pages/Loader copy.js
+/src/pages/Songs copy.js
+/src/pages/Song copy 2.js
+/src/components/ListProducts copy.js
+/src/components/AppLogo.js
+/src/components/Song copy.js
+/src/components/MobileHeader.js
+/src/components/Modal/index copy.js
+/src/components/viewModal/index copy.js
+
+/src/pages/Song copy.js
+

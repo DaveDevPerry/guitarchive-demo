@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap');
+
+#unmounted{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width:100vw;
+  /* background-color: red; */
+}
+#unmounted h1{
+  color: transparent;
+  font-size: 10rem;
+}
+.page{
+  display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	row-gap: 1rem;
+	max-width: 100rem;
+	padding: 0.5rem 1rem;
+	overflow-y: hidden;
+	z-index: 1;
+	transition: all 200ms linear;
+	margin: 0 auto;
+	flex: 1;
+	z-index: 600;
+  overflow: hidden;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;500&display=swap');
