@@ -5,7 +5,7 @@ import { GlobalStyles } from './assets/globalStyles';
 import { lightTheme, darkTheme } from './assets/Themes';
 import { ThemeProvider } from 'styled-components';
 import { useAuthContext } from './hooks/useAuthContext';
-import { StateContext, useStateContext } from './lib/context';
+import { StateContext } from './lib/context';
 import { log } from './utils/helper';
 import { Toaster } from 'react-hot-toast';
 import AnimatedRoutes from './AnimatedRoutes';

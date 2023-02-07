@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Song = require('../models/songModel');
 const Status = require('../models/statusModel');
-('use strict');
+// ('use strict');
 
 // fastify.register(require("fastify-cors"), function (instance) {
 //   return (req, callback) => {
