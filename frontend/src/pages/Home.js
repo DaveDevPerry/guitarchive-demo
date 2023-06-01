@@ -92,7 +92,7 @@ const Home = ({ theme, youtubeData }) => {
 
 	// function sand events
 	const homeSongFilterHandler = (e) => {
-		console.log(e, 'e');
+		console.log(e.target.value, 'e');
 		switch (e.target.value) {
 			case 'tabs':
 				setFilterValue('tabs');
@@ -111,6 +111,9 @@ const Home = ({ theme, youtubeData }) => {
 				break;
 			case 'capo':
 				setFilterValue('capo');
+				break;
+			case 'youtube':
+				setFilterValue('youtube');
 				break;
 			// case 'practicing':
 			// 	setFilterValue('practicing');

@@ -38,6 +38,7 @@ app.use('/api/ideas', ideaRoutes);
 app.use('/api/requests', requestRoutes);
 
 // connect to db
+mongoose.set('strictQuery', true);
 mongoose
 	.connect(process.env.DATABASE_URL, {
 		useNewUrlParser: true,

@@ -10,6 +10,8 @@ const {
 	getDeadlines,
 	getCapo,
 	getNoCapo,
+	getYoutube,
+	getRecorded,
 	// getPracticing
 } = require('../controllers/productController');
 // const requireAuth = require('../middleware/requireAuth');
@@ -20,8 +22,10 @@ const router = express.Router();
 
 // users route
 router.get('/', getAllSongs);
+router.get('/youtube', getYoutube);
 router.get('/songs', getAllSongs);
 router.get('/products', getProducts);
+router.get('/recorded', getRecorded);
 // router.get('/', getProducts);
 
 router.get('/practicing', getPracticing);

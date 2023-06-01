@@ -22,10 +22,21 @@ function SongsList({ filterValue }) {
 		`${process.env.REACT_APP_BACKEND_URL}/api/products/${filterValue}?page=${page}`,
 		fetcher
 	);
+	// console.log(fetcher, 'fetcher');
 	useEffect(() => {
+		console.log(data, 'data fetcher');
+		console.log(
+			`${process.env.REACT_APP_BACKEND_URL}/api/products/${filterValue}?page=${page}`,
+			'url 1'
+		);
 		if (data) {
+			console.log(
+				`${process.env.REACT_APP_BACKEND_URL}/api/products/${filterValue}?page=${page}`,
+				'url 2'
+			);
 			setPageCount(data.pagination.pageCount);
 			setSongCount(data.pagination.count);
+			console.log(data, 'data fetcher');
 		}
 	}, [data]);
 
