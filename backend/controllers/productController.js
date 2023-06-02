@@ -564,19 +564,7 @@ const getPracticing = async (request, res) => {
 	const query = {
 		'status.name': 'Practicing',
 	};
-	// try {
-	// const skip = (page - 1) * SONGS_PER_PAGE; // 1 * 20 = 20
 
-	// Status.find({ name: "Practicing" }).populate('Songs').exec(...)
-	// Recipe.find({ title: new RegExp('\\*') }).populate('Complaints').exec(...)
-
-	// 	Complaint.find().populate({
-	// 		path: "Recipe"
-	// 		match: {
-	// 				title: new RegExp('\\*')
-	// 		}
-	// }).exec(...);
-	// const filtered = Song.find();
 	const filtered = Song.find()
 		.populate({
 			path: 'status',
@@ -590,322 +578,10 @@ const getPracticing = async (request, res) => {
 				// return item.status !== null;
 			});
 		});
-	// const filtered = await Song.find()
-	// 	.populate({
-	// 		path: 'status',
-	// 		select: 'name _id',
-	// 	})
-	// 	.exec((error, items) => {
-	// 		items.map((item) => {
-	// 			console.log(item.status.name, 'item');
-	// 			return item.status.name === 'Practicing';
-	// 		});
-	// 		console.log(items, 'items');
-	// 	});
-	// .forEach((song) => {
-	// 	console.log(song.status.name, 'song');
-	// });
-	// .map((song) => {
-	// 	return song.status !== null;
-	// });
-	// console.log(await filtered, 'filtered');
-	// };
-	// const getPracticing = async (request, res) => {
-	// 	const page = request.query.page || 1;
-	// 	console.log(request.query, 'req query');
-	// 	// Put all your query params in here
-	// 	const query = {
-	// 		'status.name': 'Practicing',
-	// 	};
-	// try {
-	// 	const skip = (page - 1) * SONGS_PER_PAGE; // 1 * 20 = 20
-	// 	const countPromise = Song.countDocuments(query);
-	// 	const itemsPromise = Song.find(query)
-	// 		.populate([
-	// 			{
-	// 				path: 'artist',
-	// 				model: 'Artist',
-	// 				select: '_id name', //Fields you want to return in this populate
-	// 			},
-	// 			{
-	// 				path: 'arranger',
-	// 				model: 'Arranger',
-	// 				select: '_id name', //Fields you want to return in this populate
-	// 			},
-	// 			{
-	// 				path: 'style',
-	// 				model: 'Style',
-	// 				select: '_id name', //Fields you want to return in this populate
-	// 			},
-	// 			{
-	// 				path: 'status',
-	// 				model: 'Status',
-	// 				select: '_id name', //Fields you want to return in this populate
-	// 				// match: { 'status.name': 'Practicing' },
-	// 			},
-	// 		])
-	// 		.limit(SONGS_PER_PAGE)
-	// 		.skip(skip)
-	// 		.exec((error, items) => {
-	// 			items.map((item) => {
-	// 				// console.log(item.status, 'item');
-	// 				return item.status.name === 'Practicing';
-	// 			});
-	// 		});
-	// 	const [count, items] = await Promise.all([countPromise, itemsPromise]);
-	// 	console.log(count, 'count');
-	// 	console.log(items, 'items');
-	// 	const pageCount =
-	// 		(count / SONGS_PER_PAGE) % 1 > 0
-	// 			? Math.ceil(count / SONGS_PER_PAGE)
-	// 			: count / SONGS_PER_PAGE; // 400 items / 20 = 20
-	// 	res.status(200).json({
-	// 		pagination: {
-	// 			count,
-	// 			pageCount,
-	// 		},
-	// 		items,
-	// 	});
-	// } catch (e) {
-	// 	console.error(e);
-	// 	return e;
-	// }
 };
-// 	// Put all your query params in here
-// 	// const query = {
-// 	// 	// 'song.status.name': 'Practicing',
-// 	// 	// status: { '$status.name': 'Practicing' },
-// 	// 	// $eq: { 'status.name': 'Practicing' },
-// 	// };
-// 	// 'name': { $eq: 'Practicing' },
-// 	// isFavourite: { $eq: true },
-// 	// status: {
-// 	// 	$filter: {
-// 	// 		input: '$status',
-// 	// 		as: 'status',
-// 	// 		cond:
-// 	// 			{ $eq: ['$status.name', 'Practicing'] },
-// 	// 	},
-// 	// },
-// 	// 'status.name': 'Practicing'
-// 	//  'status': mongoose.Schema.ObjectId(id)
-// 	// };
-// 	// 	"status" : {
-// 	// 		"$filter" : {
-// 	// 			 "input" : "$status",
-// 	// 			 "as" : "status",
-// 	// 			 "cond" :
-// 	// 			//  { "$and" : [
-// 	// 						{ "$eq" : [ "$status.name", "Practicing" ] }
 
-// 	// 				// 		{ "$eq" : [ "$status.warehouse.code", "02" ] }
-// 	// 				//  ]
-// 	// 			 }
-// 	// 		}
-// 	//  }
-
-// 	// let popObj = {
-// 	// 	path: 'status',
-// 	// 	select: 'name _id',
-// 	// 	match: { name: 'Practicing' },
-// 	// };
-// 	// let doc = await Song.find({}).populate(popObj);
-// 	// console.log(doc.length);
-// 	// const filterName = 'Practicing';
-// 	// const songs = await Song.find({
-// 	// 	difficulty: { $gt: 4 },
-// 	// });
-
-// 	// const songs = await Song.findOne({
-// 	// 	filterName,
-// 	// }).populate({
-// 	// 	path: 'status',
-// 	// 	model: 'Status',
-// 	// 	select: 'name -_id',
-// 	// 	match: {
-// 	// 		// 			// 'status.status.name': { $eq: filterName },
-// 	// 		// 			'status.status.name': { $eq: filterName },
-// 	// 		'status.name': { $eq: filterName },
-// 	// 		// 			// Images: {$exists: true, $ne: []}
-// 	// 		// 		},
-// 	// 	},
-// 	// });
-// 	// const songs = await Song.find({
-// 	// 	status: { $exists: true },
-// 	// 	// status: { $exists: true },
-// 	// })
-// 	// 	.populate({
-// 	// 		path: 'status',
-// 	// 		model: 'Status',
-// 	// 		match: {
-// 	// 			// 'status.status.name': { $eq: filterName },
-// 	// 			'status.status.name': { $eq: filterName },
-// 	// 			// 'status.name': { $eq: filterName },
-// 	// 			// Images: {$exists: true, $ne: []}
-// 	// 		},
-// 	// 		select: 'name -_id',
-// 	// 	})
-// 	// 	.exec((err, data) => {
-// 	// 		console.log(err);
-// 	// 		console.log(data, 'data');
-// 	// 	});
-// 	// const songs = await Song.find({
-// 	// 	// ...someFilter,
-// 	// 	status: { $exists: true },
-// 	// })
-// 	// 	.populate({
-// 	// 		path: 'status',
-// 	// 		model: 'Status',
-// 	// 		match: {
-// 	// 			// name: { $eq: filterName },
-// 	// 			'status.status.name': { $eq: filterName },
-// 	// 			// 'status.name': { $eq: filterName },
-// 	// 			// Images: {$exists: true, $ne: []}
-// 	// 		},
-// 	// 		select: 'name -_id',
-// 	// 	})
-// 	// 	.exec((err, data) => {
-// 	// 		console.log(err);
-// 	// 		console.log(data, 'data');
-// 	// 	});
-// 	// .skip(skip)
-// 	// .limit(limit);
-// 	// .populate({
-// 	// 	path: 'status',
-// 	// 	match: { 'status.name': { $eq: filterName } },
-// 	// 	select: 'name -_id',
-// 	// })
-// 	// .exec((err, data) => {
-// 	// 	console.log(err);
-// 	// 	res.json(data);
-// 	// });
-
-// 	// 	const products = await ProductSchema.find(
-// 	// 		{
-// 	// 				...someFilter,
-// 	// 				"Offers.0": {$exists: true}
-// 	// 		}
-// 	// ).populate({
-// 	// 		path: "Offers",
-// 	// 		match: {
-// 	// 				Quantity: {$gt: 2},
-// 	// 				Images: {$exists: true, $ne: []}
-// 	// 		}
-// 	// }).skip(skip).limit(limit)
-
-// 	// const songs = await Song.find({})
-// 	// 	.populate({
-// 	// 		path: 'status',
-// 	// 		match: { 'status.name': { $eq: filterName } },
-// 	// 		select: 'name -_id',
-// 	// 	})
-// 	// 	.exec((err, data) => {
-// 	// 		console.log(err);
-// 	// 		res.json(data);
-// 	// 	});
-
-// 	// const songs = await Song.find()
-// 	// 	.find({ status: filterName })
-// 	// 	.populate('status.name', {
-// 	// 		select: 'name',
-// 	// 		match: { name: { $ne: filterName } },
-// 	// 	})
-// 	// 	.exec(function (err, chats) {});
-
-// 	// songs.aggregate([
-// 	// 	{
-// 	// 		$lookup: {
-// 	// 			from: 'status',
-// 	// 			localField: 'Status', // field of reference to subItem
-// 	// 			foreignField: '_id',
-// 	// 			as: 'status',
-// 	// 		},
-// 	// 	},
-// 	// 	{
-// 	// 		$match: {
-// 	// 			$or: [{ isTab: false }, { 'status.name': { $eq: ['Practicing'] } }],
-// 	// 		},
-// 	// 	},
-// 	// ]);
-
-// 	// console.log(songs, 'songs');
-// 	// console.log(songs.length, 'songs');
-// 	// db.items.aggregate([
-// 	// 	{
-// 	// 		$lookup:{
-// 	// 			from:"subItems",
-// 	// 			localField:"subItems", // field of reference to subItem
-// 	// 			foreignField:"_id",
-// 	// 			as :"subItems"
-// 	// 		}},
-// 	// 	{
-// 	// 		$match:
-// 	// 				{
-// 	// 					$or: [
-// 	// 						{ 'owner': 1 },
-// 	// 						{ 'subItems.sharedGroups.groupId': { $in: [3691] } },
-// 	// 					]
-// 	// 				}
-// 	// 	}]
-// 	// 	)
-
-// 	// try {
-// 	// 	const skip = (page - 1) * SONGS_PER_PAGE; // 1 * 20 = 20
-// 	// 	const countPromise = Song.countDocuments(query);
-// 	// 	const itemsPromise = Song.find(query)
-// 	// 		.populate([
-// 	// 			{
-// 	// 				path: 'artist',
-// 	// 				model: 'Artist',
-// 	// 				select: '_id name', //Fields you want to return in this populate
-// 	// 			},
-// 	// 			{
-// 	// 				path: 'arranger',
-// 	// 				model: 'Arranger',
-// 	// 				select: '_id name', //Fields you want to return in this populate
-// 	// 			},
-// 	// 			{
-// 	// 				path: 'style',
-// 	// 				model: 'Style',
-// 	// 				select: '_id name', //Fields you want to return in this populate
-// 	// 			},
-// 	// 			{
-// 	// 				path: 'status',
-// 	// 				model: 'Status',
-// 	// 				select: '_id name', //Fields you want to return in this populate
-// 	// 				match: { 'status.name': 'practicing' },
-// 	// 				// match: {
-// 	// 				// 	'name': { $eq: 'Practicing' },
-// 	// 				// 	// 'propertyLocation.city': '5fc5fe1655257c4dd4af2b16',
-// 	// 				// },
-// 	// 				// match: {
-// 	// 				// 	name: { $eq: 'Practicing' },
-// 	// 				// },
-// 	// 			},
-// 	// 		])
-// 	// 		.limit(SONGS_PER_PAGE)
-// 	// 		.skip(skip);
-// 	// 	const [count, items] = await Promise.all([countPromise, itemsPromise]);
-// 	// 	// console.log(items, 'items');
-// 	// 	console.log(count, 'count');
-// 	// 	const pageCount =
-// 	// 		(count / SONGS_PER_PAGE) % 1 > 0
-// 	// 			? Math.ceil(count / SONGS_PER_PAGE)
-// 	// 			: count / SONGS_PER_PAGE; // 400 items / 20 = 20
-// 	// 	res.status(200).json({
-// 	// 		pagination: {
-// 	// 			count,
-// 	// 			pageCount,
-// 	// 		},
-// 	// 		items,
-// 	// 	});
-// 	// } catch (e) {
-// 	// 	console.error(e);
-// 	// 	return e;
-// 	// }
-// };
 const getRecorded = async (request, res) => {
-	console.log('get recorded controller');
+	// console.log('get recorded controller');
 	// const page = request.query.page || 1;
 	// console.log(request.query, 'req query');
 	// console.log(request, 'request');
@@ -963,7 +639,7 @@ const getRecorded = async (request, res) => {
 	try {
 		const countPromise = await Song.countDocuments(query);
 		const recordedSongs = await Song.find(query);
-		console.log(countPromise, 'count promise');
+		// console.log(countPromise, 'count promise');
 		res.status(200).json(recordedSongs);
 	} catch (error) {
 		console.log(error, 'error');
@@ -1056,20 +732,8 @@ const getRecorded = async (request, res) => {
 };
 
 const getYoutube = async (request, res) => {
-	console.log('get youtube controller');
+	// console.log('get youtube controller');
 	const page = request.query.page || 1;
-	console.log(request.query, 'req query');
-	// console.log(request, 'request');
-	// Put all your query params in here
-	// const query = {
-	// 	// status.name: { $eq: 'youtube' },
-	// 	// status: { name: { $eq: 'recorded' } },
-	// 	// $match: { 'status.name': 'Recorded' },
-	// 	// 'status.name': 'Recorded',
-	// 	// 'status.name': { $eq: 'youtube' },
-	// 	$match: { 'status.name': { $eq: 'Recorded' } }
-	// };
-	// const statuses = await Status.find({})
 	const query = {
 		status: { $eq: '622154e25df8ff0f94f1bed5' },
 	};
@@ -1077,26 +741,6 @@ const getYoutube = async (request, res) => {
 		const skip = (page - 1) * SONGS_PER_PAGE; // 1 * 20 = 20
 		const countPromise = Song.countDocuments(query);
 		const itemsPromise = Song.find(query)
-			// const itemsPromise = await Song.aggregate([
-			// 	{ $match: { 'status.name': 'youtube' } },
-			// ])
-			// const countPromise = Song.countDocuments({
-			// 	$match: { 'status.name': 'Recorded' },
-			// });
-			// const itemsPromise = Song.find({ $match: { 'status.name': 'Recorded' } })
-			// const countPromise = Song.countDocuments({ 'status.name': 'Recorded' });
-			// const itemsPromise = Song.find({ 'status.name': 'Recorded' })
-			// 	.populate({
-			// 		path: 'status',
-			// 		match: {
-			// 			name: 'Recorded',
-			// 		},
-			// 	})
-			// 	.exec(function (err, songs) {
-			// 		songs = songs.filter(function (song) {
-			// 			return song.status; // return only users with email matching 'type: "Gmail"' query
-			// 		});
-			// 	})
 			.populate([
 				{
 					path: 'artist',

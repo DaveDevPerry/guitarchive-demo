@@ -314,6 +314,7 @@ ${
 			}
   input[type='range'] {
       overflow: hidden;
+      appearance: none;
       -webkit-appearance: none;
       background-color: ${({ theme }) => theme.secondaryColor};
     }

@@ -24,19 +24,19 @@ function SongsList({ filterValue }) {
 	);
 	// console.log(fetcher, 'fetcher');
 	useEffect(() => {
-		console.log(data, 'data fetcher');
-		console.log(
-			`${process.env.REACT_APP_BACKEND_URL}/api/products/${filterValue}?page=${page}`,
-			'url 1'
-		);
+		// console.log(data, 'data fetcher');
+		// console.log(
+		// 	`${process.env.REACT_APP_BACKEND_URL}/api/products/${filterValue}?page=${page}`,
+		// 	'url 1'
+		// );
 		if (data) {
-			console.log(
-				`${process.env.REACT_APP_BACKEND_URL}/api/products/${filterValue}?page=${page}`,
-				'url 2'
-			);
+			// console.log(
+			// 	`${process.env.REACT_APP_BACKEND_URL}/api/products/${filterValue}?page=${page}`,
+			// 	'url 2'
+			// );
 			setPageCount(data.pagination.pageCount);
 			setSongCount(data.pagination.count);
-			console.log(data, 'data fetcher');
+			// console.log(data, 'data fetcher');
 		}
 	}, [data]);
 
@@ -140,7 +140,7 @@ function SongsList({ filterValue }) {
 			opacity: 1,
 			delay: 2,
 			transition: {
-				staggerChildren: 0.2,
+				staggerChildren: 0.05,
 				// delayChildren: 0.5
 			},
 		},

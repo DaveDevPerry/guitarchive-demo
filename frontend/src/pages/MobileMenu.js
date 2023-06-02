@@ -30,7 +30,7 @@ const MobileMenu = ({ theme }) => {
 			opacity: 1,
 			delay: 2,
 			transition: {
-				staggerChildren: 0.2,
+				staggerChildren: 0.05,
 				// delayChildren: 0.5
 			},
 		},
