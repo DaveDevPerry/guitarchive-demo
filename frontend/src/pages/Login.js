@@ -21,7 +21,7 @@ const Login = ({ theme }) => {
 		await login(email, password);
 	};
 
-	const loginForm = useRef(null);
+	const loginForm = useRef();
 
 	useEffect(() => {
 		log('login page');

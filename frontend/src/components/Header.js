@@ -11,6 +11,7 @@ import { RiLogoutBoxLine } from 'react-icons/ri';
 // import { useStateContext } from '../lib/context';
 import { useLogout } from '../hooks/useLogout';
 import { toast } from 'react-hot-toast';
+import { useAuthContext } from '../hooks/useAuthContext';
 
 const Header = ({ mode }) => {
 	const location = useLocation();
@@ -23,6 +24,7 @@ const Header = ({ mode }) => {
 	// 	// setShowMusiciansMenu,
 	// } = useStateContext();
 	const { logout } = useLogout();
+	const { user } = useAuthContext();
 
 	// const handleSubMenu = () => {
 	// 	log('clicked');
@@ -74,7 +76,7 @@ const Header = ({ mode }) => {
 
 	return (
 		<>
-			{location.pathname !== '/' && (
+			{location.pathname !== '/' && user && (
 				<StyledHeader initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
 					<div className={`container ${width < breakpoint ? 'mobile' : ''}`}>
 						<Link to='/'>
